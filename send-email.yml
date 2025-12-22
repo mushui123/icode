@@ -1,0 +1,22 @@
+# .github/workflows/send-email.yml
+name: Send Email
+on:
+  schedule:
+    - cron: '55 09 * * *'  # 每天UTC时间0点
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.EMAIL_USERNAME}}
+          password: ${{secrets.EMAIL_PASSWORD}}
+          subject: "GitHub通知"
+          to: "115950330@qq.com"
+          from: "GitHub Bot"
+          body: "这是来自GitHub的自动通知"
