@@ -2,7 +2,7 @@
 name: Send Email
 on:
   schedule:
-    - cron: '55 09 * * *'  # 每天UTC时间0点
+    - cron: '22 11 * * *'  # 每天UTC时间0点
   workflow_dispatch:  # 手动触发
 
 jobs:
