@@ -1,5 +1,5 @@
 name: Send Test Email
-on: [push]  # 触发条件，可改为手动触发或定时任务
+on: [workflow_dispatch]  # 触发条件，可改为手动触发或定时任务
 jobs:
   send_email:
     runs-on: ubuntu-latest
