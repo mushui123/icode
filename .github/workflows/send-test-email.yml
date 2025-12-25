@@ -1,0 +1,18 @@
+name: Send Test Email
+on: [workflow_dispatch]  # 手动触发工作流
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Test Email
+      uses: pascalgn/send-email-action@v1
+      with:
+        from: ${{ secrets.SMTP_USER }}
+        to: lsj@mail.zjgsu.edu.cn  # 接收测试邮件的邮箱地址
+        subject: Test Email from GitHub Actions
+        body: This is a test email sent from GitHub Actions.
+        host: ${{ secrets.SMTP_HOST }}
+        port: ${{ secrets.SMTP_PORT }}
+        user: ${{ secrets.SMTP_USER }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        tls: true
