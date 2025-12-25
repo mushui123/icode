@@ -1,18 +1,19 @@
 name: Send Test Email
-on: [workflow_dispatch]  # 手动触发工作流
+on: [push]  # 触发条件，可改为手动触发或定时任务
 jobs:
-  send-email:
+  send_email:
     runs-on: ubuntu-latest
     steps:
-    - name: Send Test Email
-      uses: pascalgn/send-email-action@v1
-      with:
-        from: ${{ secrets.SMTP_USER }}
-        to: lsj@mail.zjgsu.edu.cn  # 接收测试邮件的邮箱地址
-        subject: Test Email from GitHub Actions
-        body: This is a test email sent from GitHub Actions.
-        host: ${{ secrets.SMTP_HOST }}
-        port: ${{ secrets.SMTP_PORT }}
-        user: ${{ secrets.SMTP_USER }}
-        password: ${{ secrets.SMTP_PASSWORD }}
-        tls: true
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.qq.com  # 替换为SMTP服务器地址
+          server_port: 465            # 替换为对应端口
+          username: ${{ secrets.MAIL_USERNAME }}  # 邮箱用户名
+          password: ${{ secrets.MAIL_PASSWORD }}  # 授权密码
+          subject: Test Email from GitHub Actions
+          to: lsj@mail.zjgsu.edu.cn  # 收件人邮箱
+          from: ${{ secrets.MAIL_USERNAME }}
+          body: This is a test email sent from GitHub Actions.
