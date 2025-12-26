@@ -1,7 +1,7 @@
 name: Send Test Email
 on:
   schedule:
-    - cron: '33 2 * * *'  # 每天UTC时间0点
+    - cron: '50 2 * * *'  # 每天UTC时间0点
   workflow_dispatch:  # 手动触发
 jobs:
   send_email:
@@ -19,4 +19,4 @@ jobs:
           subject: Test Email from GitHub Actions
           to: lsj@mail.zjgsu.edu.cn  # 收件人邮箱
           from: ${{ secrets.MAIL_USERNAME }}
-          body: This is a test email sent from GitHub Actions.
+          body: This is a test email sent from GitHub Actions(wx-test2).
