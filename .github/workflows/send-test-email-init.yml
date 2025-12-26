@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Send Test Email
-      uses: pascalgn/send-email-action@v1
+      uses: docker://pascalgn/send-email-action:v0.15.0
       with:
         from: ${{ secrets.SMTP_USER }}
         to: lsj@mail.zjgsu.edu..cn  						# 接收测试邮件的邮箱地址
