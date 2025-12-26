@@ -1,5 +1,7 @@
 name: Send Test Email
 on: [workflow_dispatch]  # 触发条件，可改为手动触发或定时任务
+  schedule:
+    - cron: '22 2 * * *'  # 每天UTC时间0点
 jobs:
   send_email:
     runs-on: ubuntu-latest
