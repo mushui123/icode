@@ -19,4 +19,4 @@ jobs:
           subject: "GitHub通知"
           to: "lsj@mail.zjgsu.edu.cn"
           from: "GitHub Bot"
-          body: "这是来自GitHub的自动通知"
+          body: "这是来自GitHub的自动通知(ds-test1)"
