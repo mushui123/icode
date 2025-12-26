@@ -1,4 +1,4 @@
-name: Send Test Email
+name: Send Test Email Init
 on: [workflow_dispatch]  						# 手动触发工作流
 jobs:
   send-email:
@@ -10,7 +10,7 @@ jobs:
         from: ${{ secrets.SMTP_USER }}
         to: lsj@mail.zjgsu.edu..cn  						# 接收测试邮件的邮箱地址
         subject: Test Email from GitHub Actions
-        body: This is a test email sent from GitHub Actions.
+        body: This is a test email sent from GitHub Actions(wx-test1).
         host: ${{ secrets.SMTP_HOST }}
         port: ${{ secrets.SMTP_PORT }}
         user: ${{ secrets.SMTP_USER }}
