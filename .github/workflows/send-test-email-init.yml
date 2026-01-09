@@ -3,7 +3,7 @@ on: [workflow_dispatch]  						# 手动触发工作流
 jobs:
   send-email:
     runs-on: ubuntu-latest
-    steps:
+    steps:1
     - name: Send Test Email
       uses: docker://pascalgn/send-email-action:v0.15.0
       with:
